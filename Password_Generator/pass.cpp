@@ -6,6 +6,7 @@
 // #include <fstream> - Out of Scope 
 
 std::string generatePassword(int length);
+std::string xorecrypt(std::string pass);
 
 int main() {
     srand(time(0));
@@ -28,6 +29,7 @@ int main() {
     std::string newpass = generatePassword(length);
     std::cout << "Your Password: " << newpass << "\n";
 
+    std::cout << xorecrypt(newpass);
 return EXIT_SUCCESS;
 }
 
@@ -44,5 +46,17 @@ std::string generatePassword(int length) {
         password += chars[rand() % chars.size()];
     }
     return password;
+}
+
+
+//I get that this should not be visible but this is xor encryption as a temporary bandaid
+std::string xorecrypt(std::string pass) {
+    std::string key = "notapassword"; 
+    std::string encryptedpass = pass;
+    for(int i = 0; i < pass.length(); i++)
+    {
+        encryptedpass.at(i) ^= key[i % key.length()];
+    }
+    return encryptedpass;
 }
 
