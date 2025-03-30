@@ -57,6 +57,6 @@ std::string xorecrypt(std::string pass) {
     {
         encryptedpass.at(i) ^= key[i % key.length()];
     }
-    return encryptedpass;
+    return encryptedpass; //To Do: Decrypt function & Menu
 }
 
