@@ -8,6 +8,11 @@ with varying training time although the average time spent is less 40 minutes a 
 ### Plans
 
 - Add Encryption(Done)
+- Decryption Added()
 - Use Fstream to generate files to store, encrypte and read from.
 - A gui using FLTK or if possible a modern looking library
 - Syncing
+
+### Criticism
+
+- I haven't learned pointers yet so I can't fully use it to my advantage.
