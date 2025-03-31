@@ -67,6 +67,7 @@ std::string xorecrypt(std::string pass) {
     return encryptedpass;
 }
 
+//decrypt done
 std::string xordecrypt(std::string encrypted_pass) {
     std::string decrypted = encrypted_pass;
 
