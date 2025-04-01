@@ -78,3 +78,8 @@ std::string xordecrypt(std::string encrypted_pass) {
 
     return decrypted;
 }
+
+void save_file() {
+    //Save what we have done
+    //Only 5 save file
+}
