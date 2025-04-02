@@ -10,6 +10,11 @@ std::string xorecrypt(std::string pass);
 std::string key = "notapassword"; 
 std::string xordecrypt(std::string encrypted_pass);
 
+struct keypass{
+std::string key = "notapassword";
+
+};
+
 int main() {
     srand(time(0));
 
