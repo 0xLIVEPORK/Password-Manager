@@ -16,3 +16,4 @@ with varying training time although the average time spent is less 40 minutes a 
 ### Criticism
 
 - I haven't learned pointers yet so I can't fully use it to my advantage.
+- While it is readable, I've learned that I can use struct to increase my code's readability.
