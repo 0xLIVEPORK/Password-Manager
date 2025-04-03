@@ -21,7 +21,7 @@ int main() {
 return EXIT_SUCCESS;
 }
 
-void Menu_Loop(keypass.password)
+void Menu_Loop()
 {
     std::cout << 
     "[1] - Generate A Password\n"
@@ -29,6 +29,26 @@ void Menu_Loop(keypass.password)
     "[3] - View Saved Log-ins\n\n"
     "Enter a Valid Integer: ";
 
-    std::cin >> 
+    int choice;
+    int tries = 0;
+
+    do
+    {
+        if(!(std::cin >> choice) || choice <= 0 || choice > 3) 
+        {
+        tries++;
+        std::cerr << "Invalid Input\nTry Again: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << tries;
+        continue;
+        } else if(tries > 4)
+          {
+            std::cout << "You have tried to many times";
+            break;
+          }
+    break;
+    }
+    while(true);
 
 }
