@@ -12,13 +12,13 @@ struct keypass{
   };
 
 
+// Functions
 void Menu_Loop();
 
-std::string Password(std::string Password);
+std::string Password(std::string &Password, std::string &Encrypted);
 
 int main() {
-
-  
+  srand(time(0));
 
     Menu_Loop();
     
@@ -27,14 +27,25 @@ return EXIT_SUCCESS;
 
 void Menu_Loop()
 {
+    int choice;
+    int tries = 0;
+    std::string rand_encrypter[5] = 
+    {
+      "NEE KAMISAMA", 
+      "Oni Gae Da Yo", 
+      "Idk what the fuck the password is", 
+      "A number 7 large", 
+      "What the fuck am I typing"
+    };
+
+    keypass kp;
+    kp.encrypted = rand_encrypter[rand() % (sizeof(rand_encrypter) / sizeof(rand_encrypter[0]))];
+
     std::cout << 
     "[1] - Generate A Password\n"
     "[2] - Save a Log-in\n"
     "[3] - View Saved Log-ins\n\n"
     "Enter a Valid Integer: ";
-
-    int choice;
-    int tries = 0;
 
     do
     {
@@ -58,9 +69,15 @@ void Menu_Loop()
     switch(choice)
     {
       case 1: 
-      Password(keypass std::string Password)
+      Password(kp.password, kp.encrypted);
+      break;
     }
 
     
 
+}
+
+std::string Password(std::string &Password, std::string &Encrypted)
+{
+  
 }
