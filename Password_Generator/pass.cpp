@@ -5,16 +5,20 @@
 #include <limits>
 #include <fstream>
 
+struct keypass{
+  std::string password;
+  std::string encrypted;
+  std::string decrypter;
+  };
+
+
 void Menu_Loop();
+
+std::string Password(std::string Password);
 
 int main() {
 
-    struct keypass{
-    std::string password;
-    std::string encrypted;
-    std::string decrypter = "Nee Kami Sama";
-    };
-
+  
 
     Menu_Loop();
     
@@ -34,21 +38,29 @@ void Menu_Loop()
 
     do
     {
-        if(!(std::cin >> choice) || choice <= 0 || choice > 3) 
-        {
-        tries++;
-        std::cerr << "Invalid Input\nTry Again: ";
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << tries;
-        continue;
-        } else if(tries > 4)
+        if(tries > 4)
           {
             std::cout << "You have tried to many times";
             break;
+          } else if(!(std::cin >> choice) || choice <= 0 || choice > 3) 
+          {
+          tries++;
+          std::cerr << "Invalid Input\nTry Again: ";
+          std::cin.clear();
+          std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+          std::cout << tries;
+          continue;
           }
     break;
     }
     while(true);
+
+    switch(choice)
+    {
+      case 1: 
+      Password(keypass std::string Password)
+    }
+
+    
 
 }
