@@ -69,7 +69,7 @@ void Menu_Loop()
     switch(choice)
     {
       case 1:
-      Password(kp.password, kp.encrypted);
+      std::cout << Password(kp.password, kp.encrypted);
       break;
     }
 
@@ -90,14 +90,25 @@ std::string Password(std::string &Password, std::string &Encrypted)
   {
     if(!(std::cin >> length) || length <= 0 || length > 100)
     {
-      std::cerr << "\nLength is Invalid\nTry Again: "
+      std::cerr << "\nLength is Invalid\nTry Again: ";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      continue;
     }
+  break;
   }
-  for(int i = 0; i < Password.length(); i++)
+  for(int i = 0; i < length; i++)
   {
     Password += chars[rand() % chars.length()];
   }
-  
 
+  //encryption
+  std::string Test = Password;
+  for(int i = 0; i < length; i++)
+  {
+    Test.at(i) ^= Encrypted[i % Encrypted.length()];
+  }
+  
+  std::cout << "\n" << Test;
   return Password;
 }
