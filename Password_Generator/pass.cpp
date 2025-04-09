@@ -31,7 +31,7 @@ void Menu_Loop()
     int tries = 0;
     std::string rand_encrypter[5] = 
     {
-      "NEE KAMISAMA", 
+    
       "Oni Gae Da Yo", 
       "Idk what the fuck the password is", 
       "A number 7 large", 
