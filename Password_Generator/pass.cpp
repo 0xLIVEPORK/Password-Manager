@@ -23,15 +23,21 @@ std::string Generate_Password(unsigned short length)
 int main() {
   unsigned short length;
 
-  std::cout << "Enter a Number";
+  std::cout << "Enter a Number: ";
 
   while(true)
   {
     if(!(std::cin >> length) || length < 0 || length > 250)
     {
-      std::cerr << "You have Inputted an \"INVALID SHORT INTEGER\"\nTry Again: "
-    }
+      std::cerr << "You have Inputted an \"INVALID SHORT INTEGER\"\nTry Again: ";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      continue;
+    } 
+  break;
   }
+
+  std::cout << Generate_Password(length);
 
   return EXIT_SUCCESS;
 }
