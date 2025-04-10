@@ -4,6 +4,12 @@
 #include <string>
 #include <fstream>
 
+struct PW_Management
+{
+  unsigned short length;
+  
+};
+
 std::string Generate_Password(unsigned short length);
 
 int main() {
