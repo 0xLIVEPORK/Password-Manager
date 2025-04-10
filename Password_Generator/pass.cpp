@@ -1,122 +1,19 @@
 #include <iostream>
 #include <cstdlib>
-#include <string>
-#include <ctime>
 #include <limits>
+#include <string>
 #include <fstream>
 
-struct keypass{
-  std::string password;
-  std::string encrypted;
-  std::string decrypter;
-  };
-
-
-// Functions
-void Menu_Loop();
-
-std::string Password(std::string &Password, std::string &Encrypted);
-
-int main() {
-  srand(time(0));
-
-    Menu_Loop();
-    
-return EXIT_SUCCESS;
-}
-
-void Menu_Loop()
+std::string Generate_Password(unsigned short length)
 {
-    int choice;
-    int tries = 0;
-    std::string rand_encrypter[5] = 
-    {
-    
-      "Oni Gae Da Yo", 
-      "Idk what the fuck the password is", 
-      "A number 7 large", 
-      "What the fuck am I typing"
-    };
+  std::string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                      "abcdefghijklmnopqrstuvwxyz"
+                      "0123456789"
+                      "!@#$%^&*()";
 
-    keypass kp;
-    kp.encrypted = rand_encrypter[rand() % (sizeof(rand_encrypter) / sizeof(rand_encrypter[0]))];
-
-    std::cout << 
-    "[1] - Generate A Password\n"
-    "[2] - Save a Log-in\n"
-    "[3] - View Saved Log-ins\n\n"
-    "Enter a Valid Integer: ";
-
-    do
-    {
-        if(tries > 4)
-          {
-            std::cout << "You have tried to many times";
-            break;
-          } else if(!(std::cin >> choice) || choice <= 0 || choice > 3) 
-          {
-          tries++;
-          std::cerr << "Invalid Input\nTry Again: ";
-          std::cin.clear();
-          std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-          std::cout << tries;
-          continue;
-          }
-    break;
-    }
-    while(true);
-
-    switch(choice)
-    {
-      case 1:
-      std::cout << Password(kp.password, kp.encrypted);
-      break;
-    }
-
-    
-
-}
-
-std::string Password(std::string &Password, std::string &Encrypted)
-{
-  int length;
-  std::string chars = 
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  "abcdefghijklmnopqrstuvwxyz"
-  "0123456789"
-  "!@#$%^&*()";
-
-  while(true)
-  {
-    if(!(std::cin >> length) || length <= 0 || length > 100)
-    {
-      std::cerr << "\nLength is Invalid\nTry Again: ";
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      continue;
-    }
-  break;
-  }
+  std::string Generated;
   for(int i = 0; i < length; i++)
   {
-    Password += chars[rand() % chars.length()];
+    Generated += chars[rand() % chars.length()]; //Generated concatenate everytime the for loop runs until it reaches (length - 1) rand gives a huge number between 0 and 32767 remainder %, you might question what if rand = 0 woudn't that be division by 0? But that's not true because the modulo operator is not actually a division it just gives you the remainder and the programmers of t hat funciton are smart enough to think aobut the edge cases like what if hte input is 0.
   }
-
-  //encryption
-  std::string Test = Password;
-  for(int i = 0; i < length; i++)
-  {
-    Test.at(i) ^= Encrypted[i % Encrypted.length()];
-  }
-  
-  std::cout << "\n" << Test << "\n";
-
-  for(int i = 0; i < length; i++)
-  {
-    Test.at(i) ^= Encrypted[i % Encrypted.length()];
-  }
-  
-  std::cout << "\n\n" << Test << "\n";
-
-  return Password;
 }
