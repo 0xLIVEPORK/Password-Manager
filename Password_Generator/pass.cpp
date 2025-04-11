@@ -46,23 +46,8 @@ int main() {
   break;
   }
 
-  std::cout << Generate_Password(length);
+  std::cout << Manager.Generate_Password(Manager.length);
 
   return EXIT_SUCCESS;
 }
 
-std::string Generate_Password(unsigned short length)
-{
-  std::string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                      "abcdefghijklmnopqrstuvwxyz"
-                      "0123456789"
-                      "!@#$%^&*()";
-
-  std::string Generated;
-  for(int i = 0; i < length; i++)
-  {
-    Generated += chars[rand() % chars.length()];
-  }
-
-  return Generated;
-}
