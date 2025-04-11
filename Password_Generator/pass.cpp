@@ -7,10 +7,26 @@
 struct PW_Management
 {
   unsigned short length;
+
+  std::string Generate_Password(unsigned short &length)
+{
+  std::string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                      "abcdefghijklmnopqrstuvwxyz"
+                      "0123456789"
+                      "!@#$%^&*()";
+
+  std::string Generated;
+  for(int i = 0; i < length; i++)
+  {
+    Generated += chars[rand() % chars.length()];
+  }
+
+  return Generated;
+}
+  
   
 };
 
-std::string Generate_Password(unsigned short length);
 
 int main() {
   unsigned short length;
