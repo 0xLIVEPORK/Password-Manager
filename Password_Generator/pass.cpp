@@ -29,13 +29,14 @@ struct PW_Management
 
 
 int main() {
-  unsigned short length;
+  PW_Management Manager;
+
 
   std::cout << "Enter a Number: ";
 
   while(true)
   {
-    if(!(std::cin >> length) || length < 0 || length > 250)
+    if(!(std::cin >> Manager.length) || Manager.length < 0 || Manager.length > 250)
     {
       std::cerr << "You have Inputted an \"INVALID SHORT INTEGER\"\nTry Again: ";
       std::cin.clear();
@@ -65,4 +66,3 @@ std::string Generate_Password(unsigned short length)
 
   return Generated;
 }
-s
