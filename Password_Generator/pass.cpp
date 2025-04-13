@@ -9,7 +9,7 @@ struct PW_Management
   unsigned short length;
 
 
-  std::string Generate_Password(unsigned short *length)
+  std::string Generate_Password(unsigned short length)
   {
   std::string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                       "abcdefghijklmnopqrstuvwxyz"
@@ -18,7 +18,7 @@ struct PW_Management
 
   std::string Generated;
 
-    for(int i = 0; i < *length; i++)
+    for(int i = 0; i < length; i++)
     {
       Generated += chars[rand() % chars.length()];
     }
@@ -26,9 +26,15 @@ struct PW_Management
     return Generated;
     } 
 
-    std::string Encrypt_Password();
+  std::string Encrypt_Password()
+  {
+    std::string word_list[10] = {"She Said Take Your Time", 
+                                 ""};
+    for (int i = 0; i < length; i++)
+    {
 
-
+    }
+  }
 };
 
 
@@ -49,10 +55,8 @@ int main() {
     } 
   break;
   }
-  unsigned short ref_length& = &
-  unsigned short * length = Manager.length;
 
-  Manager.Generate_Password(length);
+  std::cout << Manager.Generate_Password(Manager.length);
 
   return EXIT_SUCCESS;
 }
