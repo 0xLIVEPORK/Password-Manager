@@ -6,6 +6,7 @@
 
 struct PW_Management
 {
+  std::string Generated;
   unsigned short length;
 
 
@@ -16,8 +17,6 @@ struct PW_Management
                       "0123456789"
                       "!@#$%^&*()";
 
-  std::string Generated;
-
     for(int i = 0; i < length; i++)
     {
       Generated += chars[rand() % chars.length()];
@@ -26,21 +25,29 @@ struct PW_Management
     return Generated;
     } 
 
-  std::string Encrypt_Password()
+  std::string Encrypt_Password(std::string &Generated, )
   {
-    std::string word_list[10] = {"She Said Take Your Time", 
-                                 ""};
+    std::string word_list[4] = {"She Said Take Your Time", 
+                                 "Don't Have to Rush",
+                                "RAGHHHHHHHHHHHHHHH",
+                                "IDK WHAT TF IM DOING"};
+
+    std::string random_word = word_list[rand() % sizeof(word_list) / sizeof(word_list[0])];
+
     for (int i = 0; i < length; i++)
     {
-
+      Generated[i] ^= random_word[i];
     }
+
+    return Generated;
   }
 };
 
 
 int main() {
+  srand(time(0));
+  
   PW_Management Manager;
-
 
   std::cout << "Enter a Number: ";
 
@@ -56,7 +63,8 @@ int main() {
   break;
   }
 
-  std::cout << Manager.Generate_Password(Manager.length);
+  std::cout << Manager.Generate_Password(Manager.length) << "\n";
+  std::cout << Manager.Encrypt_Password(Manager.Generated);
 
   return EXIT_SUCCESS;
 }
