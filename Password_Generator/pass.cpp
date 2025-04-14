@@ -25,7 +25,7 @@ struct PW_Management
     return Generated;
     } 
 
-  std::string Encrypt_Password(std::string &Generated, )
+  std::string Encrypt_Password(std::string Generated)
   {
     std::string word_list[4] = {"She Said Take Your Time", 
                                  "Don't Have to Rush",
@@ -34,7 +34,7 @@ struct PW_Management
 
     std::string random_word = word_list[rand() % sizeof(word_list) / sizeof(word_list[0])];
 
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < random_word.length(); i++)
     {
       Generated[i] ^= random_word[i];
     }
