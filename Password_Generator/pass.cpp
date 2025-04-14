@@ -6,7 +6,16 @@
 
 struct PW_Management
 {
+  std::string word_list[4] = 
+  {
+    "She Said Take Your Time", 
+    "Don't Have to Rush",
+    "RAGHHHHHHHHHHHHHHH",
+    "IDK WHAT TF IM DOING"
+  };
+
   std::string Generated;
+  std::string random_word = word_list[rand() % (sizeof(word_list) / sizeof(word_list[0]))];
   unsigned short length;
 
 
@@ -27,12 +36,9 @@ struct PW_Management
 
   std::string Encrypt_Password(std::string Generated)
   {
-    std::string word_list[4] = {"She Said Take Your Time", 
-                                 "Don't Have to Rush",
-                                "RAGHHHHHHHHHHHHHHH",
-                                "IDK WHAT TF IM DOING"};
+    
 
-    std::string random_word = word_list[rand() % (sizeof(word_list) / sizeof(word_list[0]))];
+    
 
     for (int i = 0; i < Generated.length(); i++)
     {
@@ -40,6 +46,14 @@ struct PW_Management
     }
 
     return Generated;
+  }
+
+  std::string Cipher(std::string Generated)
+  {
+    for(int i = 0; i < Generated.length(); i++)
+    {
+      Generated[i] ^= []
+    }
   }
 };
 
