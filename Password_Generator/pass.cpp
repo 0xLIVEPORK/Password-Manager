@@ -32,9 +32,9 @@ struct PW_Management
                                 "RAGHHHHHHHHHHHHHHH",
                                 "IDK WHAT TF IM DOING"};
 
-    std::string random_word = word_list[rand() % sizeof(word_list) / sizeof(word_list[0])];
+    std::string random_word = word_list[rand() % (sizeof(word_list) / sizeof(word_list[0]))];
 
-    for (int i = 0; i < random_word.length(); i++)
+    for (int i = 0; i < Generated.length(); i++)
     {
       Generated[i] ^= random_word[i];
     }
