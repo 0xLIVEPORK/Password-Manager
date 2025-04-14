@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 
+
 struct PW_Management
 {
   std::string word_list[4] = 
@@ -36,9 +37,6 @@ struct PW_Management
 
   std::string Encrypt_Password(std::string Generated)
   {
-    
-
-    
 
     for (int i = 0; i < Generated.length(); i++)
     {
@@ -48,18 +46,21 @@ struct PW_Management
     return Generated;
   }
 
-  std::string Cipher(std::string Generated)
+  std::string Cipher(std::string  Generated)
   {
+    std::string Deciphered = Generated;
     for(int i = 0; i < Generated.length(); i++)
     {
-      Generated[i] ^= []
+      Deciphered[i] ^= random_word[i % random_word.length()];
     }
+
+    return Deciphered;
   }
 };
 
 
 int main() {
-  srand(time(0));
+  
   
   PW_Management Manager;
 
@@ -78,7 +79,8 @@ int main() {
   }
 
   std::cout << Manager.Generate_Password(Manager.length) << "\n";
-  std::cout << Manager.Encrypt_Password(Manager.Generated);
+  std::cout << Manager.Encrypt_Password(Manager.Generated) << "\n";
+  std::cout << Manager.Cipher(Manager.Generated);
 
   return EXIT_SUCCESS;
 }
