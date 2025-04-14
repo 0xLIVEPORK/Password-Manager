@@ -36,7 +36,7 @@ struct PW_Management
 
     for (int i = 0; i < Generated.length(); i++)
     {
-      Generated[i] ^= random_word[i];
+      Generated[i] ^= random_word[i % random_word.length()];
     }
 
     return Generated;
