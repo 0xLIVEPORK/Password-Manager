@@ -18,6 +18,9 @@ struct PW_Management
   std::string Generated;
   std::string random_word = word_list[rand() % (sizeof(word_list) / sizeof(word_list[0]))];
   unsigned short length;
+  std::string* pgen;
+
+  structg PW_Management::pgen = &Generated;
 
 
   std::string Generate_Password(unsigned short length)
@@ -35,7 +38,7 @@ struct PW_Management
     return Generated;
     } 
 
-  std::string Encrypt_Password(std::string Generated)
+  std::string Encrypt_Password(std::string * Generated)
   {
 
     for (int i = 0; i < Generated.length(); i++)
@@ -63,6 +66,7 @@ int main() {
   
   
   PW_Management Manager;
+  Manager.Generated;
 
   std::cout << "Enter a Number: ";
 
