@@ -20,7 +20,6 @@ struct PW_Management
   unsigned short length;
   std::string* pgen;
 
-  structg PW_Management::pgen = &Generated;
 
 
   std::string Generate_Password(unsigned short length)
@@ -38,21 +37,22 @@ struct PW_Management
     return Generated;
     } 
 
-  std::string Encrypt_Password(std::string * Generated)
+  std::string Encrypted;
+  std::string Encrypt_Password(std::string Generated)
   {
-
+    std::string Encrypted = Generated;
     for (int i = 0; i < Generated.length(); i++)
     {
-      Generated[i] ^= random_word[i % random_word.length()];
+      Encrypted[i] ^= random_word[i % random_word.length()];
     }
 
-    return Generated;
+    return Encrypted;
   }
 
-  std::string Cipher(std::string  Generated)
+  std::string Cipher(std::string Encrypted)
   {
-    std::string Deciphered = Generated;
-    for(int i = 0; i < Generated.length(); i++)
+    std::string Deciphered = Encrypted;
+    for(int i = 0; i < Deciphered.length(); i++)
     {
       Deciphered[i] ^= random_word[i % random_word.length()];
     }
@@ -63,6 +63,7 @@ struct PW_Management
 
 
 int main() {
+  
   
   
   PW_Management Manager;
@@ -82,9 +83,12 @@ int main() {
   break;
   }
 
-  std::cout << Manager.Generate_Password(Manager.length) << "\n";
-  std::cout << Manager.Encrypt_Password(Manager.Generated) << "\n";
-  std::cout << Manager.Cipher(Manager.Generated);
+  std::cout << "Password: " << Manager.Generate_Password(Manager.length) << "\n";
+
+  Manager.Encrypted = Manager.Encrypt_Password(Manager.Generated); 
+  std::cout << "Encrypted: " << Manager.Encrypted << "\n";
+
+  std::cout << Manager.Cipher(Manager.Encrypted);
 
   return EXIT_SUCCESS;
 }
