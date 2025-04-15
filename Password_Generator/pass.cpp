@@ -70,19 +70,19 @@ int main() {
   Manager.Generated;
   unsigned short Menu_Choice;
 
-  std::cout << "What is the Length of the Password ";
-
-  while(true)
+  do 
   {
-    if(!(std::cin >> Manager.length) || Manager.length < 0 || Manager.length > 250)
+    if(!(std::cin >> Menu_Choice) || Menu_Choice < 0 || Menu_Choice > 4)
     {
-      std::cerr << "You have Inputted an \"INVALID SHORT INTEGER\"\nTry Again: ";
+      std::cerr << "You Entered Invalid Integer\nTry Again:";
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
       continue;
-    } 
+    }
   break;
-  }
+  }while(true);
+
+
 
   switch(Menu_Choice)
   {
