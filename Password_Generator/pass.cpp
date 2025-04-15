@@ -3,7 +3,7 @@
 #include <limits>
 #include <string>
 #include <fstream>
-#include <ctime
+#include <ctime>
 
 struct PW_Management
 {
