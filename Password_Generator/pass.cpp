@@ -107,6 +107,7 @@ int main() {
     std::cout << "Encrypted: " << Manager.Encrypted << "\n";
     break;
 
+    case 3:
     default:
     break;
   }
