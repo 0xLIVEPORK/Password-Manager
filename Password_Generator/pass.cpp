@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include logic.h
 
 struct PW_Management
 {
