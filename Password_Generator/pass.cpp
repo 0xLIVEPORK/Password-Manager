@@ -8,6 +8,9 @@
 
 int main()
 {
+  masterkey
   std::cout << "Enter The Master Key";
+
+  std::cin >> 
   
 }
