@@ -8,6 +8,6 @@
 
 int main()
 {
-
+  std::cout << "Enter The Master Key";
   
 }
