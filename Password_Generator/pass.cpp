@@ -58,3 +58,54 @@ std::string Encrypted;
   }
 };
 
+
+int main() {
+  
+  
+  
+  PW_Management Manager;
+  Manager.Generated;
+  unsigned short Menu_Choice;
+
+  do 
+  {
+    if(!(std::cin >> Menu_Choice) || Menu_Choice < 0 || Menu_Choice > 4)
+    {
+      std::cerr << "You Entered Invalid Integer\nTry Again:";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      continue;
+    }
+  break;
+  } while(true);
+
+  std::cout << "What is the Length of the Password ";
+
+    while(true)
+    {
+    if(!(std::cin >> Manager.length) || Manager.length < 0 || Manager.length > 250)
+    {
+      std::cerr << "You have Inputted an \"INVALID SHORT INTEGER\"\nTry Again: ";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      continue;
+    } 
+
+
+  switch(Menu_Choice)
+  {
+    case 1:
+
+    std::cout << "Password: " << Manager.Generate_Password(Manager.length) << "\n";
+
+    case 2:
+    Manager.Encrypted = Manager.Encrypt_Password(Manager.Generated); 
+    std::cout << "Encrypted: " << Manager.Encrypted << "\n";
+
+
+    break;
+    }
+
+    default:
+    break;
+  }
