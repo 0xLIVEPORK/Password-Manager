@@ -34,4 +34,27 @@ struct PW_Management
       Generated += chars[rand() % chars.length()];
     }
 
+std::string Encrypted;
+  std::string Encrypt_Password(std::string Generated)
+  {
+    std::string Encrypted = Generated;
+    for (int i = 0; i < Generated.length(); i++)
+    {
+      Encrypted[i] ^= random_word[i % random_word.length()];
+    }
+
+    return Encrypted;
+  }
+
+  std::string Cipher(std::string Encrypted)
+  {
+    std::string Deciphered = Encrypted;
+    for(int i = 0; i < Deciphered.length(); i++)
+    {
+      Deciphered[i] ^= random_word[i % random_word.length()];
+    }
+
+    return Deciphered;
+  }
+};
 
