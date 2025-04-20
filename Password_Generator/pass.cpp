@@ -109,3 +109,9 @@ int main() {
     default:
     break;
   }
+
+std::cout << Manager.Cipher(Manager.Encrypted);
+
+  return EXIT_SUCCESS;
+}
+
