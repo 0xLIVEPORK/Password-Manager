@@ -17,7 +17,7 @@ struct PW_Management
 
   std::string Generated;
   std::string random_word = word_list[rand() % (sizeof(word_list) / sizeof(word_list[0]))];
-  unsigned short length;
+  unsigned short length;https://github.com/0xLIVEPORK/Password-Manager/edit/main/Password_Generator/pass.cpp
   std::string* pgen;
 
 
@@ -89,5 +89,31 @@ int main() {
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 SUCCESS;
+
+            continue;
+    } 
+
+
+  switch(Menu_Choice)
+  {
+    case 1:
+
+    std::cout << "Password: " << Manager.Generate_Password(Manager.length) << "\n";
+
+    case 2:
+    Manager.Encrypted = Manager.Encrypt_Password(Manager.Generated); 
+    std::cout << "Encrypted: " << Manager.Encrypted << "\n";
+
+
+    break;
+    }
+
+    default:
+    break;
+  }
+
+std::cout << Manager.Cipher(Manager.Encrypted);
+
+  return EXIT_
 }
 
