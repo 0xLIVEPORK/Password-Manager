@@ -7,7 +7,7 @@
 
 struct PW_Management
 {
-  std::string word_list[4] = 
+  std::string word_list[4] = fasfs
   {
     "She Said Take Your Time", 
     "Don't Have to Rush",
