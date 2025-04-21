@@ -88,30 +88,6 @@ int main() {
       std::cerr << "You have Inputted an \"INVALID SHORT INTEGER\"\nTry Again: ";
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      continue;
-    } 
-
-
-  switch(Menu_Choice)
-  {
-    case 1:
-
-    std::cout << "Password: " << Manager.Generate_Password(Manager.length) << "\n";
-
-    case 2:
-    Manager.Encrypted = Manager.Encrypt_Password(Manager.Generated); 
-    std::cout << "Encrypted: " << Manager.Encrypted << "\n";
-
-
-    break;
-    }
-
-    default:
-    break;
-  }
-
-std::cout << Manager.Cipher(Manager.Encrypted);
-
-  return EXIT_SUCCESS;
+SUCCESS;
 }
 
