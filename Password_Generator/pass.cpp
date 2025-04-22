@@ -7,6 +7,9 @@ class Person{
   std::string first;
   std::string last;
 
-  void printfullname(std::string &first, std::string &last)
+  void printfullname() 
+  {
+  std::cout << first << " " << last << "\n";
+  }
 
 ];
