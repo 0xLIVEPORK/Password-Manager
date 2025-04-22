@@ -3,18 +3,10 @@
 #include <string>
 #include <limits>
 
-class Password_Generator {
-  public:
+class Person{
+  std::string first;
+  std::string last;
 
-  private:
+  void printfullname(std::string &first, std::string &last)
 
-  protected:
-
-};
-
-int main() {
-
-  std::cout << "Welcome to The Password Manager ";
-
-  printFullName();
-}
+];
