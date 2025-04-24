@@ -1,15 +1,3 @@
-#include <iostream>
-
-/*🧪 YOUR TASK
-gffgf
-Make a simple class called Enemy with the following:
-fad
-    Function:
-
-        void describe() — should output:
-        "Enemy Type: <type>, Strength: <strength>"
-
-    In main(), create 2 different enemies and call describe() on both.*/
 
 class Enemy{
 
