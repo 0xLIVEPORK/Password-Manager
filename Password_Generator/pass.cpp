@@ -3,13 +3,7 @@
 /*🧪 YOUR TASK
 gffgf
 Make a simple class called Enemy with the following:
-
-    Variables:
-
-        string type
-
-        int strength
-
+fad
     Function:
 
         void describe() — should output:
