@@ -1,30 +1,23 @@
+#include <iostream>
+#include <cstdlib>
+#include <limits>
 
-class Enemy{
+class user{
+    private:
 
-  public:
+    std::string username;
+    std::string userpass;
+    
+    public:
 
-  std::string type;
-  int strength;
+    
 
-  void describe()
-  {
-    std::cout << "Enemy Type: " << type << ", Strength: " << strength << "\n";
-  }
+    
 };
 
 int main() {
 
-  Enemy Vampire;
-  Vampire.type = "Undead";
-  Vampire.strength = 20;
+    class user{
 
-  Enemy Zombie;
-  Zombie.type = "Undead";
-  Zombie.strength = 5;
-
-  Vampire.describe();
-
-  Zombie.describe();
-
-
+    };
 }
