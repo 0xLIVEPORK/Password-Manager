@@ -4,22 +4,17 @@
 #include <ctime>
 
 class user{
-    private:
+    protected:
 
     std::string username;
     std::string userpass;
     
     public:
 
-    std::string generatepass(int length) {
-
-
-    }
-
     
 };
 
-class passmanager{
+class passmanager: protected user{
     private:
 
     std::string key = "whyisthisshitopenforeveryonetoreadahaha....";
@@ -50,5 +45,5 @@ int main() {
 
     std::cout << "Log-in First"; // Still not in use we'll skip to the menu
 
-    
+    return EXIT_SUCCESS;
 }
