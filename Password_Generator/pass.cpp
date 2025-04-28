@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <limits>
+#include <ctime>
 
 class user{
     private:
@@ -10,14 +11,19 @@ class user{
     
     public:
 
-    
+    std::string generatepass(int length) {
+
+
+    }
 
     
 };
 
 int main() {
 
-    class user{
+    srand(time(0));
 
-    };
+    int length;
+
+    std::cout << "Log-in First"
 }
