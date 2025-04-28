@@ -22,6 +22,11 @@ class passmanager: protected user{
 
     public:
 
+    void generatePassword(){
+        
+
+    }    
+
     void Menu(){
         std::cout << "\tPASSWORD MANAGER\n\n"
               << "[1] Generate Password\n"
@@ -29,21 +34,43 @@ class passmanager: protected user{
               << "[3] Exit\n"
               << "\nChoose a Number: ";
 
-        std::cin >> choice;
+        while(true)
+        {
+            if(!(std::cin >> choice) || choice > 3) {
+                std::cerr << "Invalid Input\n";
+
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                continue;
+            }
+            break;
+        }
+
+        switch(choice)
+
+        case 1:
+
+
+        case 2:
+
+        default:
+        std::cout << "Out of Bounds";
+        
     }
+
+
 };
 
 int main() {
-
+    passmanager PasswordManager;
     srand(time(0));
 
-    passmanager PasswordManager;
+    
+    std::cout << "Log-in First"; // Still not in use we'll skip to the menu
 
     PasswordManager.Menu();
 
     int length;
-
-    std::cout << "Log-in First"; // Still not in use we'll skip to the menu
 
     return EXIT_SUCCESS;
 }
