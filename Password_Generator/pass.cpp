@@ -20,6 +20,10 @@ class user{
 };
 
 class passmanager{
+    private:
+
+    std::string key = "whyisthisshitopenforeveryonetoreadahaha....";
+    unsigned short choice;
 
     public:
 
@@ -30,13 +34,17 @@ class passmanager{
               << "[3] Exit\n"
               << "\nChoose a Number: ";
 
-        std::cin >> 
+        std::cin >> choice;
     }
 };
 
 int main() {
 
     srand(time(0));
+
+    passmanager PasswordManager;
+
+    PasswordManager.Menu();
 
     int length;
 
