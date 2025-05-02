@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <limits>
 #include <ctime>
+#include <fstream>
 
 class user{
     protected:
@@ -10,14 +11,13 @@ class user{
     std::string userpass;
     
     public:
-fsfsfs
+
     
 };
 
 class passmanager: protected user{
     private:
 
-    std::string password;
     std::string key = "whyisthisshitopenforeveryonetoreadahaha....";
     int choice;
     int length;
@@ -32,15 +32,15 @@ class passmanager: protected user{
             "!@#$%^&*()";
 
         for(int i = 0; i < length; i++) {
-            password += chars[rand() % chars.size()];
+            userpass += chars[rand() % chars.size()];
         }
 
-        return password;
+        return userpass;
     }
 
     void Menu() {
         while (true) {
-            std::cout << "\tPASSWORD MANAGER\n\n"
+            std::cout << "\n\t[PASSWORD MANAGER]\n\n"
                       << "[1] Generate Password\n"
                       << "[2] Saved Users\n"
                       << "[3] Exit\n"
@@ -55,6 +55,19 @@ class passmanager: protected user{
     
             switch (choice) {
                 case 1:
+                userpass.clear();
+
+                while(true) {
+                    std::cout << "Enter a Username: ";
+                    if (!(std::cin >> username)) {
+                        std::cerr << "Invalid Input\n";
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                        continue;
+                    }
+                    break;
+                }
+
                     while (true) {
                         std::cout << "Enter a Length: ";
                         if (!(std::cin >> length) || length > 200 || length < 1) {
@@ -65,8 +78,8 @@ class passmanager: protected user{
                         }
                         break;
                     }
-                    password.clear(); // Clear before generating
-                    std::cout << generatePassword(length) << std::endl;
+                    userpass.clear(); // Clear before generating
+                    std::cout << "Username: " << username << "\nPassword: " << generatePassword(length) << std::endl;
                     break;
     
                 case 2:
@@ -82,6 +95,9 @@ class passmanager: protected user{
 };
 
 int main() {
+
+    std::ofstream PDfile("testing.txt");
+    
     srand(time(0));
     passmanager PasswordManager;
     
