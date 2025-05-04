@@ -12,7 +12,7 @@ with varying training time although the average time spent is less 40 minutes a 
 - Use Fstream to generate files to store, encrypte and read from.(Done)
 - A gui using FLTK or if possible a modern looking library
 - Syncing
-
+- SHIT
 ### Criticism
 
 - While it is readable, I've learned that I can use struct to increase my code's readability.
