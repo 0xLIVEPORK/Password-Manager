@@ -3,7 +3,7 @@
 #include <limits>
 #include <ctime>
 #include <fstream>
-ff
+
 class user{
     protected:
 
@@ -36,6 +36,17 @@ class passmanager: protected user{
         }
 
         return userpass;
+    }
+
+    std::string encryptPassword(int &length) {
+        
+        std::string encrypted = userpass;
+
+        for(int i =0; i < length; i++) {
+            encrypted[i] ^= key[i % key.length()];
+        }
+
+        return encrypted;
     }
 
     void Menu() {
@@ -79,7 +90,9 @@ class passmanager: protected user{
                         break;
                     }
                     userpass.clear(); // Clear before generating
-                    std::cout << "Username: " << username << "\nPassword: " << generatePassword(length) << std::endl;
+                    std::cout << "Please Remember the Password Generated " << generatePassword(length); //let's put it on a file once we learn how to do so
+                    
+                    std::cout << "\nUsername: " << username << "\nEncrypted Password: " << encryptPassword(length) << "\n";
                     break;
     
                 case 2:
@@ -97,7 +110,7 @@ class passmanager: protected user{
 int main() {
 
     std::ofstream PDfile("testing.txt");
-    
+
     srand(time(0));
     passmanager PasswordManager;
     
