@@ -3,7 +3,9 @@
 A C++  password manager from the ground up. 
 
 This is used as a project to gauge my skills as I learn more about c++. As of writing I have only learned c++ for 2 weeks 
-with varying training time although the average time spent is less 40 minutes a day.
+with varying training time although the average time spent is less 40 minutes a day.  
+
+scratch that I'm barely putting 20 mins a day now
 
 ### Plans
 
